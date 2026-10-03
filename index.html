@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mandera County International Taekwon-Do Association</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation CSS CDN -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Raleway:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandBlack: '#111111',
+                        brandGold: '#FFD700',
+                        brandGreen: '#008000',
+                        brandRed: '#FF0000',
+                    },
+                    fontFamily: {
+                        montserrat: ['Montserrat', 'sans-serif'],
+                        raleway: ['Raleway', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Animated Effects */
+        .logo-glow {
+            animation: pulse-glow 3s infinite alternate;
+        }
+        @keyframes pulse-glow {
+            0% { filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.5)); }
+            100% { filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.9)); }
+        }
+
+        .showcase-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+            cursor: pointer;
+        }
+        
+        .showcase-card img {
+            transition: transform 0.6s ease, filter 0.6s ease;
+        }
+
+        .showcase-card:hover img {
+            transform: scale(1.1) rotate(2deg);
+            filter: brightness(0.6);
+        }
+
+        .showcase-overlay {
+            position: absolute;
+            bottom: -100%;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            transition: bottom 0.5s ease;
+        }
+
+        .showcase-card:hover .showcase-overlay {
+            bottom: 0;
+        }
+
+        /* Animated Belt Border */
+        .belt-border {
+            background: linear-gradient(45deg, #FFD700, #111111, #008000);
+            background-size: 200% 200%;
+            animation: gradientMove 4s ease infinite;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-raleway overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="bg-brandBlack text-white fixed w-full z-50 shadow-lg top-0 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center gap-3">
+                    <!-- IMPORTANT: Make sure the image is named 'logo.png' and in the same folder as index.html -->
+                    <img src="./logo.png" alt="MCITA Logo" class="h-14 w-14 rounded-full border-2 border-brandGold object-cover logo-glow">
+                    <span class="font-montserrat font-bold text-lg md:text-xl tracking-wider hidden sm:block">
+                        MCITA
+                    </span>
+                </div>
+                <div class="hidden md:flex space-x-8 font-medium">
+                    <a href="#home" class="hover:text-brandGold transition">Home</a>
+                    <a href="#about" class="hover:text-brandGold transition">About Us</a>
+                    <a href="#showcase" class="hover:text-brandGold transition">Showcase</a>
+                    <a href="#contact" class="bg-brandGold text-brandBlack px-5 py-2 rounded-full hover:bg-yellow-500 transition font-bold">Contact</a>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-white hover:text-brandGold focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brandBlack border-t border-gray-800">
+            <a href="#home" class="block px-4 py-3 hover:bg-gray-900 border-b border-gray-800">Home</a>
+            <a href="#about" class="block px-4 py-3 hover:bg-gray-900 border-b border-gray-800">About Us</a>
+            <a href="#showcase" class="block px-4 py-3 hover:bg-gray-900 border-b border-gray-800">Showcase</a>
+            <a href="#contact" class="block px-4 py-3 text-brandGold font-bold">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative bg-brandBlack text-white pt-28 pb-20 md:pt-36 md:pb-32 overflow-hidden">
+        <!-- Background Abstract Shapes -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0 opacity-20">
+            <div class="absolute -top-20 -left-20 w-96 h-96 bg-brandGold rounded-full mix-blend-multiply filter blur-3xl"></div>
+            <div class="absolute top-40 right-10 w-72 h-72 bg-brandGreen rounded-full mix-blend-multiply filter blur-3xl"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
+                <div class="lg:w-1/2 text-center lg:text-left" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="inline-block bg-gray-800 border border-gray-700 rounded-full px-4 py-1 mb-6 text-sm font-semibold tracking-wide text-brandGold">
+                        <i class="fas fa-fist-raised mr-2"></i> ITF Taekwon-Do
+                    </div>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-montserrat font-extrabold leading-tight mb-6 uppercase">
+                        Mandera County <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brandGold to-yellow-200">International</span> <br>
+                        Taekwon-Do Association
+                    </h1>
+                    <p class="text-lg text-gray-300 mb-8 max-w-xl mx-auto lg:mx-0">
+                        Forging discipline, integrity, and indomitable spirit. Join us in mastering the art of self-defense and building a stronger community.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#contact" class="bg-brandGold text-brandBlack font-bold py-3 px-8 rounded-full hover:bg-yellow-400 transition transform hover:scale-105 shadow-lg flex items-center justify-center gap-2">
+                            <i class="fas fa-user-plus"></i> Join Now
+                        </a>
+                        <a href="https://wa.me/254729246855" target="_blank" class="bg-green-600 text-white font-bold py-3 px-8 rounded-full hover:bg-green-700 transition transform hover:scale-105 shadow-lg flex items-center justify-center gap-2">
+                            <i class="fab fa-whatsapp text-xl"></i> Chat on WhatsApp
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2 flex justify-center" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="relative p-4 rounded-full belt-border">
+                        <!-- Provided Logo -->
+                        <img src="./logo.png" alt="Mandera County International Taekwon-Do Association Logo" class="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-contain bg-white rounded-full p-2">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-montserrat font-bold text-brandBlack mb-4">About The Association</h2>
+                <div class="w-24 h-1 bg-brandGold mx-auto mb-6"></div>
+                <p class="text-gray-600 leading-relaxed text-lg">
+                    Based in the heart of Mandera County, Kenya, our association is dedicated to promoting the traditional values and techniques of International Taekwon-Do Federation (ITF). We believe in empowering individuals through martial arts, fostering physical fitness, mental resilience, and a strong sense of community.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-gray-50 p-8 rounded-2xl shadow-sm hover:shadow-xl transition duration-300 border border-gray-100 text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-brandBlack text-brandGold rounded-full flex items-center justify-center mx-auto mb-6 text-2xl">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 font-montserrat">Self-Defense</h3>
+                    <p class="text-gray-600">Learn practical and effective self-defense techniques rooted in centuries of martial arts tradition.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="bg-gray-50 p-8 rounded-2xl shadow-sm hover:shadow-xl transition duration-300 border border-gray-100 text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-brandBlack text-brandGold rounded-full flex items-center justify-center mx-auto mb-6 text-2xl">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 font-montserrat">Community</h3>
+                    <p class="text-gray-600">Join a supportive network of practitioners dedicated to mutual growth and community development.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="bg-gray-50 p-8 rounded-2xl shadow-sm hover:shadow-xl transition duration-300 border border-gray-100 text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 bg-brandBlack text-brandGold rounded-full flex items-center justify-center mx-auto mb-6 text-2xl">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 font-montserrat">Discipline</h3>
+                    <p class="text-gray-600">Develop focus, respect, and perseverance through the structured training of ITF Taekwon-Do.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Animated Showcase Section -->
+    <section id="showcase" class="py-20 bg-brandBlack text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-montserrat font-bold text-brandGold mb-4">Our Showcase</h2>
+                <div class="w-24 h-1 bg-brandGold mx-auto mb-6"></div>
+                <p class="text-gray-400 text-lg">Experience the power, precision, and beauty of ITF Taekwon-Do. Hover over the cards to explore our core disciplines.</p>
+            </div>
+
+            <!-- Animated Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Showcase Card 1 -->
+                <div class="showcase-card h-80 shadow-2xl" data-aos="fade-up" data-aos-delay="100">
+                    <!-- Placeholder image for demonstration. Replace with actual photos hosted on GitHub -->
+                    <img src="https://images.unsplash.com/photo-1555597673-b21d5c935865?q=80&w=800&auto=format&fit=crop" alt="Patterns (Tul)" class="w-full h-full object-cover">
+                    <div class="showcase-overlay">
+                        <h3 class="text-2xl font-montserrat font-bold text-brandGold mb-2">Patterns (Tul)</h3>
+                        <p class="text-sm text-gray-200">Pre-arranged sequences of movements that simulate a fight against multiple imaginary opponents.</p>
+                    </div>
+                </div>
+
+                <!-- Showcase Card 2 -->
+                <div class="showcase-card h-80 shadow-2xl" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1583473711243-2800308f5d3e?q=80&w=800&auto=format&fit=crop" alt="Sparring (Matsogi)" class="w-full h-full object-cover">
+                    <div class="showcase-overlay">
+                        <h3 class="text-2xl font-montserrat font-bold text-brandGold mb-2">Sparring (Matsogi)</h3>
+                        <p class="text-sm text-gray-200">Controlled combat against an opponent using attacking and defending techniques learned in training.</p>
+                    </div>
+                </div>
+
+                <!-- Showcase Card 3 -->
+                <div class="showcase-card h-80 shadow-2xl" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://images.unsplash.com/photo-1549476464-37392f717541?q=80&w=800&auto=format&fit=crop" alt="Self-Defense (Hosinsul)" class="w-full h-full object-cover">
+                    <div class="showcase-overlay">
+                        <h3 class="text-2xl font-montserrat font-bold text-brandGold mb-2">Self-Defense</h3>
+                        <p class="text-sm text-gray-200">Practical techniques designed to defend oneself against sudden attacks when no weapons are available.</p>
+                    </div>
+                </div>
+
+                <!-- Showcase Card 4 -->
+                <div class="showcase-card h-80 shadow-2xl" data-aos="fade-up" data-aos-delay="400">
+                    <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?q=80&w=800&auto=format&fit=crop" alt="Breaking (Kyukpa)" class="w-full h-full object-cover">
+                    <div class="showcase-overlay">
+                        <h3 class="text-2xl font-montserrat font-bold text-brandGold mb-2">Breaking (Kyukpa)</h3>
+                        <p class="text-sm text-gray-200">Demonstrating the power, focus, and accuracy of techniques by breaking solid objects like boards or bricks.</p>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="text-center mt-12" data-aos="fade-up" data-aos-delay="500">
+                <p class="text-gray-400 mb-4 italic">*Actual training photos coming soon from our Mandera dojo.*</p>
+                <a href="#contact" class="inline-block border-2 border-brandGold text-brandGold font-bold py-2 px-8 rounded-full hover:bg-brandGold hover:text-brandBlack transition">
+                    Visit Our Dojo
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-brandBlack rounded-3xl overflow-hidden shadow-2xl flex flex-col lg:flex-row" data-aos="fade-up">
+                
+                <!-- Contact Info -->
+                <div class="lg:w-1/2 p-10 md:p-16 text-white flex flex-col justify-center relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-brandGreen rounded-full mix-blend-multiply filter blur-3xl opacity-50"></div>
+                    <div class="absolute bottom-0 left-0 w-64 h-64 bg-brandGold rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+                    
+                    <div class="relative z-10">
+                        <h2 class="text-3xl md:text-4xl font-montserrat font-bold mb-6">Get In Touch</h2>
+                        <p class="text-gray-300 mb-10">Ready to start your Taekwon-Do journey? Contact us today for training schedules, registration, or any inquiries.</p>
+                        
+                        <div class="space-y-6">
+                            <!-- Phone -->
+                            <a href="tel:+254729246855" class="flex items-center gap-4 group">
+                                <div class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center group-hover:bg-brandGold transition duration-300">
+                                    <i class="fas fa-phone-alt text-brandGold group-hover:text-brandBlack transition"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-400">Call Us</p>
+                                    <p class="font-bold text-lg">+254 729 246 855</p>
+                                </div>
+                            </a>
+                            
+                            <!-- WhatsApp -->
+                            <a href="https://wa.me/254729246855" target="_blank" class="flex items-center gap-4 group">
+                                <div class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center group-hover:bg-green-500 transition duration-300">
+                                    <i class="fab fa-whatsapp text-brandGold group-hover:text-white text-xl transition"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-400">WhatsApp</p>
+                                    <p class="font-bold text-lg">+254 729 246 855</p>
+                                </div>
+                            </a>
+
+                            <!-- Email -->
+                            <a href="mailto:info@mcita.org" class="flex items-center gap-4 group">
+                                <div class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center group-hover:bg-brandRed transition duration-300">
+                                    <i class="fas fa-envelope text-brandGold group-hover:text-white transition"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-400">Email Address</p>
+                                    <p class="font-bold text-lg">info@mcita.org</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form (Visual placeholder) -->
+                <div class="lg:w-1/2 bg-gray-50 p-10 md:p-16">
+                    <h3 class="text-2xl font-montserrat font-bold text-brandBlack mb-6">Send Us a Message</h3>
+                    <!-- Note: This form is a frontend visual only. To make it functional on GitHub Pages, you would need a service like Formspree or Netlify Forms -->
+                    <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" class="space-y-5">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-1">Full Name</label>
+                            <input type="text" name="name" placeholder="John Doe" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brandGold focus:border-brandGold outline-none transition bg-white" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-1">Email Address</label>
+                            <input type="email" name="email" placeholder="john@example.com" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brandGold focus:border-brandGold outline-none transition bg-white" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-1">Subject</label>
+                            <input type="text" name="subject" placeholder="Inquiry about training" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brandGold focus:border-brandGold outline-none transition bg-white" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-1">Message</label>
+                            <textarea name="message" rows="4" placeholder="Your message here..." class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brandGold focus:border-brandGold outline-none transition bg-white resize-none" required></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-brandBlack text-brandGold font-bold py-4 rounded-lg hover:bg-gray-900 transition duration-300 shadow-md transform hover:-translate-y-1">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brandBlack text-white py-8 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between">
+            <div class="flex items-center gap-3 mb-4 md:mb-0">
+                <img src="./logo.png" alt="MCITA Logo" class="h-10 w-10 rounded-full border border-gray-600 object-cover">
+                <span class="font-montserrat font-bold text-sm tracking-wider">MANDERA COUNTY ITF</span>
+            </div>
+            <p class="text-gray-500 text-sm text-center md:text-left mb-4 md:mb-0">
+                &copy; <span id="year"></span> Mandera County International Taekwon-Do Association. All rights reserved.
+            </p>
+            <div class="flex space-x-4">
+                <a href="tel:+254729246855" class="text-gray-400 hover:text-brandGold transition"><i class="fas fa-phone"></i></a>
+                <a href="https://wa.me/254729246855" target="_blank" class="text-gray-400 hover:text-green-500 transition"><i class="fab fa-whatsapp"></i></a>
+                <a href="mailto:info@mcita.org" class="text-gray-400 hover:text-brandRed transition"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS Animation JS CDN -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // Initialize AOS Animation
+        AOS.init({
+            once: true, // only animate once
+            offset: 100, // offset (in px) from the original trigger point
+        });
+
+        // Dynamic Year in Footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
