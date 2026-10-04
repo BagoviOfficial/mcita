@@ -11,7 +11,7 @@
     <!-- FontAwesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- AOS Animation CSS CDN -->
+    <!-- AOS Animation CSS CDN (For scroll entrance effects) -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <!-- Google Fonts -->
@@ -40,14 +40,6 @@
 
     <style>
         /* Custom Animated Effects */
-        .logo-glow {
-            animation: pulse-glow 3s infinite alternate;
-        }
-        @keyframes pulse-glow {
-            0% { filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.5)); }
-            100% { filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.9)); }
-        }
-
         .showcase-card {
             position: relative;
             overflow: hidden;
@@ -78,7 +70,7 @@
             bottom: 0;
         }
 
-        /* Animated Belt Border */
+        /* Animated Belt Border for Logo */
         .belt-border {
             background: linear-gradient(45deg, #FFD700, #111111, #008000);
             background-size: 200% 200%;
@@ -99,8 +91,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <div class="flex items-center gap-3">
-                    <!-- IMPORTANT: Make sure the image is named 'logo.png' and in the same folder as index.html -->
-                    <img src="logo.png" alt="MCITA Logo" class="h-14 w-14 rounded-full border-2 border-brandGold object-cover logo-glow">
+                    <img src="logo.png" alt="MCITA Logo" class="h-14 w-14 rounded-full border-2 border-brandGold object-cover">
                     <span class="font-montserrat font-bold text-lg md:text-xl tracking-wider hidden sm:block">
                         MCITA
                     </span>
@@ -108,6 +99,7 @@
                 <div class="hidden md:flex space-x-8 font-medium">
                     <a href="#home" class="hover:text-brandGold transition">Home</a>
                     <a href="#about" class="hover:text-brandGold transition">About Us</a>
+                    <a href="#figures" class="hover:text-brandGold transition">Figures</a>
                     <a href="#showcase" class="hover:text-brandGold transition">Showcase</a>
                     <a href="#contact" class="bg-brandGold text-brandBlack px-5 py-2 rounded-full hover:bg-yellow-500 transition font-bold">Contact</a>
                 </div>
@@ -123,6 +115,7 @@
         <div id="mobile-menu" class="hidden md:hidden bg-brandBlack border-t border-gray-800">
             <a href="#home" class="block px-4 py-3 hover:bg-gray-900 border-b border-gray-800">Home</a>
             <a href="#about" class="block px-4 py-3 hover:bg-gray-900 border-b border-gray-800">About Us</a>
+            <a href="#figures" class="block px-4 py-3 hover:bg-gray-900 border-b border-gray-800">Figures</a>
             <a href="#showcase" class="block px-4 py-3 hover:bg-gray-900 border-b border-gray-800">Showcase</a>
             <a href="#contact" class="block px-4 py-3 text-brandGold font-bold">Contact</a>
         </div>
@@ -138,7 +131,7 @@
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
-                <div class="lg:w-1/2 text-center lg:text-left" data-aos="fade-right" data-aos-duration="1000">
+                <div class="lg:w-1/2 text-center lg:text-left hero-text">
                     <div class="inline-block bg-gray-800 border border-gray-700 rounded-full px-4 py-1 mb-6 text-sm font-semibold tracking-wide text-brandGold">
                         <i class="fas fa-fist-raised mr-2"></i> ITF Taekwon-Do
                     </div>
@@ -160,9 +153,8 @@
                     </div>
                 </div>
                 
-                <div class="lg:w-1/2 flex justify-center" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
+                <div class="lg:w-1/2 flex justify-center hero-logo">
                     <div class="relative p-4 rounded-full belt-border">
-                        <!-- Provided Logo -->
                         <img src="logo.png" alt="Mandera County International Taekwon-Do Association Logo" class="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-contain bg-white rounded-full p-2">
                     </div>
                 </div>
@@ -210,6 +202,46 @@
         </div>
     </section>
 
+    <!-- GSAP Animated Figures Section -->
+    <section id="figures" class="py-20 bg-gray-100 border-y border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-montserrat font-bold text-brandBlack mb-4">Core Movements</h2>
+                <div class="w-24 h-1 bg-brandGold mx-auto mb-6"></div>
+                <p class="text-gray-600 text-lg">Our training focuses on perfecting these fundamental Taekwon-Do figures. Watch them come alive.</p>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-12 md:gap-24">
+                <!-- Figure 1: Punching -->
+                <div class="text-center" data-aos="zoom-in">
+                    <div class="w-32 h-32 mx-auto bg-white rounded-full flex items-center justify-center shadow-lg border-2 border-brandGold relative overflow-hidden">
+                        <i id="figure-punch" class="fas fa-hand-fist text-6xl text-brandBlack"></i>
+                    </div>
+                    <h3 class="mt-6 text-xl font-montserrat font-bold text-brandBlack">Power Punch</h3>
+                    <p class="text-gray-500 text-sm mt-2">Striking with precision</p>
+                </div>
+
+                <!-- Figure 2: Kicking/Footwork -->
+                <div class="text-center" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="w-32 h-32 mx-auto bg-white rounded-full flex items-center justify-center shadow-lg border-2 border-brandGold relative overflow-hidden">
+                        <i id="figure-kick" class="fas fa-shoe-prints text-6xl text-brandBlack"></i>
+                    </div>
+                    <h3 class="mt-6 text-xl font-montserrat font-bold text-brandBlack">Fast Kick</h3>
+                    <p class="text-gray-500 text-sm mt-2">Swift and powerful strikes</p>
+                </div>
+
+                <!-- Figure 3: Blocking -->
+                <div class="text-center" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="w-32 h-32 mx-auto bg-white rounded-full flex items-center justify-center shadow-lg border-2 border-brandGold relative overflow-hidden">
+                        <i id="figure-block" class="fas fa-shield-halved text-6xl text-brandBlack"></i>
+                    </div>
+                    <h3 class="mt-6 text-xl font-montserrat font-bold text-brandBlack">Strong Block</h3>
+                    <p class="text-gray-500 text-sm mt-2">Impenetrable defense</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Animated Showcase Section -->
     <section id="showcase" class="py-20 bg-brandBlack text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -219,53 +251,45 @@
                 <p class="text-gray-400 text-lg">Experience the power, precision, and beauty of ITF Taekwon-Do. Hover over the cards to explore our core disciplines.</p>
             </div>
 
-            <!-- Animated Grid -->
+            <!-- 4-Column Grid Layout -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 
-                <!-- Showcase Card 1 -->
+                <!-- Showcase Card 1: Dojo Training -->
                 <div class="showcase-card h-80 shadow-2xl" data-aos="fade-up" data-aos-delay="100">
-                    <!-- Placeholder image for demonstration. Replace with actual photos hosted on GitHub -->
-                    <img src="https://images.unsplash.com/photo-1555597673-b21d5c935865?q=80&w=800&auto=format&fit=crop" alt="Patterns (Tul)" class="w-full h-full object-cover">
+                    <img src="https://i.postimg.cc/GBYrHTD5/training-session.jpg" alt="Dojo Training" class="w-full h-full object-cover">
                     <div class="showcase-overlay">
-                        <h3 class="text-2xl font-montserrat font-bold text-brandGold mb-2">Patterns (Tul)</h3>
-                        <p class="text-sm text-gray-200">Pre-arranged sequences of movements that simulate a fight against multiple imaginary opponents.</p>
+                        <h3 class="text-2xl font-montserrat font-bold text-brandGold mb-2">Dojo Training</h3>
+                        <p class="text-sm text-gray-200">Discipline and focus during our group training sessions at the Mandera dojo.</p>
                     </div>
                 </div>
 
-                <!-- Showcase Card 2 -->
+                <!-- Showcase Card 2: Belt Promotion -->
                 <div class="showcase-card h-80 shadow-2xl" data-aos="fade-up" data-aos-delay="200">
-                    <img src="https://images.unsplash.com/photo-1583473711243-2800308f5d3e?q=80&w=800&auto=format&fit=crop" alt="Sparring (Matsogi)" class="w-full h-full object-cover">
+                    <img src="https://i.postimg.cc/bsBZKMjk/certification.jpg" alt="Belt Promotion" class="w-full h-full object-cover">
                     <div class="showcase-overlay">
-                        <h3 class="text-2xl font-montserrat font-bold text-brandGold mb-2">Sparring (Matsogi)</h3>
-                        <p class="text-sm text-gray-200">Controlled combat against an opponent using attacking and defending techniques learned in training.</p>
+                        <h3 class="text-2xl font-montserrat font-bold text-brandGold mb-2">Belt Promotion</h3>
+                        <p class="text-sm text-gray-200">Celebrating the hard work and dedication of our students advancing to their next rank.</p>
                     </div>
                 </div>
 
-                <!-- Showcase Card 3 -->
+                <!-- Showcase Card 3: Youth Achievement -->
                 <div class="showcase-card h-80 shadow-2xl" data-aos="fade-up" data-aos-delay="300">
-                    <img src="https://images.unsplash.com/photo-1549476464-37392f717541?q=80&w=800&auto=format&fit=crop" alt="Self-Defense (Hosinsul)" class="w-full h-full object-cover">
+                    <img src="https://i.postimg.cc/fV1DzfVp/graduation2.jpg" alt="Youth Achievement" class="w-full h-full object-cover">
                     <div class="showcase-overlay">
-                        <h3 class="text-2xl font-montserrat font-bold text-brandGold mb-2">Self-Defense</h3>
-                        <p class="text-sm text-gray-200">Practical techniques designed to defend oneself against sudden attacks when no weapons are available.</p>
+                        <h3 class="text-2xl font-montserrat font-bold text-brandGold mb-2">Youth Achievement</h3>
+                        <p class="text-sm text-gray-200">Empowering the next generation through martial arts, respect, and perseverance.</p>
                     </div>
                 </div>
 
-                <!-- Showcase Card 4 -->
+                <!-- Showcase Card 4: Graduation Ceremony (NEW) -->
                 <div class="showcase-card h-80 shadow-2xl" data-aos="fade-up" data-aos-delay="400">
-                    <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?q=80&w=800&auto=format&fit=crop" alt="Breaking (Kyukpa)" class="w-full h-full object-cover">
+                    <img src="https://i.postimg.cc/WDrjhqZW/graduation.jpg" alt="Graduation Ceremony" class="w-full h-full object-cover">
                     <div class="showcase-overlay">
-                        <h3 class="text-2xl font-montserrat font-bold text-brandGold mb-2">Breaking (Kyukpa)</h3>
-                        <p class="text-sm text-gray-200">Demonstrating the power, focus, and accuracy of techniques by breaking solid objects like boards or bricks.</p>
+                        <h3 class="text-2xl font-montserrat font-bold text-brandGold mb-2">Graduation Ceremony</h3>
+                        <p class="text-sm text-gray-200">A proud moment as our students receive their well-earned certificates and awards.</p>
                     </div>
                 </div>
 
-            </div>
-            
-            <div class="text-center mt-12" data-aos="fade-up" data-aos-delay="500">
-                <p class="text-gray-400 mb-4 italic">*Actual training photos coming soon from our Mandera dojo.*</p>
-                <a href="#contact" class="inline-block border-2 border-brandGold text-brandGold font-bold py-2 px-8 rounded-full hover:bg-brandGold hover:text-brandBlack transition">
-                    Visit Our Dojo
-                </a>
             </div>
         </div>
     </section>
@@ -324,7 +348,6 @@
                 <!-- Contact Form (Visual placeholder) -->
                 <div class="lg:w-1/2 bg-gray-50 p-10 md:p-16">
                     <h3 class="text-2xl font-montserrat font-bold text-brandBlack mb-6">Send Us a Message</h3>
-                    <!-- Note: This form is a frontend visual only. To make it functional on GitHub Pages, you would need a service like Formspree or Netlify Forms -->
                     <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" class="space-y-5">
                         <div>
                             <label class="block text-sm font-semibold text-gray-700 mb-1">Full Name</label>
@@ -355,7 +378,7 @@
     <footer class="bg-brandBlack text-white py-8 border-t border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between">
             <div class="flex items-center gap-3 mb-4 md:mb-0">
-                <img src="./logo.png" alt="MCITA Logo" class="h-10 w-10 rounded-full border border-gray-600 object-cover">
+                <img src="logo.png" alt="MCITA Logo" class="h-10 w-10 rounded-full border border-gray-600 object-cover">
                 <span class="font-montserrat font-bold text-sm tracking-wider">MANDERA COUNTY ITF</span>
             </div>
             <p class="text-gray-500 text-sm text-center md:text-left mb-4 md:mb-0">
@@ -369,14 +392,17 @@
         </div>
     </footer>
 
-    <!-- AOS Animation JS CDN -->
+    <!-- AOS Animation JS CDN (For scroll reveals) -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     
+    <!-- GSAP Animation JS CDN (Provided by you) -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
+    
     <script>
-        // Initialize AOS Animation
+        // Initialize AOS Animation (Scroll reveals)
         AOS.init({
-            once: true, // only animate once
-            offset: 100, // offset (in px) from the original trigger point
+            once: true,
+            offset: 100,
         });
 
         // Dynamic Year in Footer
@@ -390,12 +416,77 @@
             menu.classList.toggle('hidden');
         });
 
-        // Close mobile menu when a link is clicked
         menu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 menu.classList.add('hidden');
             });
         });
+
+        // ----------------------------------------------------
+        // GSAP ANIMATIONS
+        // ----------------------------------------------------
+
+        // 1. Hero Logo Entrance and Floating Animation
+        const heroTl = gsap.timeline();
+        heroTl.from(".hero-logo", { 
+            duration: 1.5, 
+            scale: 0, 
+            rotation: 360, 
+            opacity: 0,
+            ease: "bounce.out" 
+        })
+        .to(".hero-logo", { 
+            duration: 3, 
+            y: 15, 
+            ease: "sine.inOut", 
+            yoyo: true, 
+            repeat: -1 
+        }, "-=0.5");
+
+        // 2. Hero Text Staggered Entrance
+        gsap.from(".hero-text h1, .hero-text p, .hero-text a, .hero-text div", {
+            duration: 1,
+            y: 50,
+            opacity: 0,
+            stagger: 0.15,
+            ease: "power3.out",
+            delay: 0.5
+        });
+
+        // 3. Animated Figures Section (Martial Arts Actions)
+        
+        // Figure 1: Punching forward and back
+        gsap.to("#figure-punch", { 
+            x: 40, 
+            duration: 0.3, 
+            yoyo: true, 
+            repeat: -1, 
+            ease: "power2.inOut", 
+            repeatDelay: 0.4 
+        });
+
+        // Figure 2: Kicking/Stepping (moving diagonally with rotation)
+        gsap.to("#figure-kick", { 
+            x: -30, 
+            y: -20, 
+            rotation: -15, 
+            duration: 0.25, 
+            yoyo: true, 
+            repeat: -1, 
+            ease: "power3.inOut", 
+            repeatDelay: 0.6 
+        });
+
+        // Figure 3: Blocking (scaling up as if absorbing an impact)
+        gsap.to("#figure-block", { 
+            scale: 1.3, 
+            duration: 0.2, 
+            yoyo: true, 
+            repeat: -1, 
+            ease: "bounce.out", 
+            repeatDelay: 0.8 
+        });
+
     </script>
 </body>
 </html>
